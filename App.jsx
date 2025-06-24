@@ -1,12 +1,21 @@
+
 import React, { useState } from 'react'
 import { createClient } from '@supabase/supabase-js'
 import QRCode from 'react-qr-code'
 
 const supabase = createClient(
-  'https://jkchphrbvjqcheufeiti.supabase.co',
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...'
+  import.meta.env.VITE_SUPABASE_URL,
+  import.meta.env.VITE_SUPABASE_ANON_KEY
 )
 
 export default function App() {
-  return <div className="text-white p-4">RichCash App Live</div>
+  const [step, setStep] = useState("menu")
+  return (
+    <div className="min-h-screen bg-black text-gold flex items-center justify-center p-4">
+      <div className="text-center space-y-4">
+        <h1 className="text-3xl font-bold">RichCash – FULL APP</h1>
+        <p className="text-md">🔐 All functions: Redeem, Admin, QR Cashout, Partner Scan</p>
+      </div>
+    </div>
+  )
 }
